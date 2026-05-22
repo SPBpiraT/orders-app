@@ -3,3 +3,66 @@
 *@
 @{
 }
+
+<div class="bg-success py-3">
+    <div class="container-fluid ps-4">
+        <h1 class="text-dark">Заказ №model.Number</h1>
+        <div class="text-dark-50">Просмотр информации о заказе</div>
+    </div>
+</div>
+
+<div class="overflow-y-auto">
+    <div class="container-fluid ps-4 mt-3" style="max-width: 900px; margin-left: 0;">
+        <div class="card text-white bg-dark border-secondary">
+            <div class="card-body p-4">
+                <div class="row">
+                    <div class="col-md-6 border-end border-secondary">
+                        <h5 class="text-warning mb-3 text-uppercase font-monospace small">Отправитель</h5>
+                        <div class="mb-3">
+                            <div class="text-white-50 small">Город отправителя</div>
+                            <div class="fs-5">model.SenderCity</div>
+                        </div>
+                        <div>
+                            <div class="text-white-50 small">Адрес отправителя</div>
+                            <div class="fs-5">model.SenderAddress</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5 class="text-success mb-3 text-uppercase font-monospace small">Получатель</h5>
+                        <div class="mb-3">
+                            <div class="text-white-50 small">Город получателя</div>
+                            <div class="fs-5">model.RecipientCity</div>
+                        </div>
+                        <div>
+                            <div class="text-white-50 small">Адрес получателя</div>
+                            <div class="fs-5">model.RecipientAddress</div>
+                        </div>
+                    </div>
+
+                    <div class="border-top border-secondary pt-4 mt-4">
+                        <h5 class="text-info mb-3 text-uppercase font-monospace small">Параметры груза</h5>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="text-white-50 small">Вес груза</div>
+                                <div class="fs-5">model.CargoWeight</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-white-50 small">Дата забора груза</div>
+                                <div class="fs-5">model.PickDate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer bg-black border-secondary d-flex justify-content-between align-items-center p-3">
+                <span class="badge bg-success px-3 py-2">Активен</span>
+                <a href="@Url.Action("Index")" class="btn btn-dark px-4">Назад к списку</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

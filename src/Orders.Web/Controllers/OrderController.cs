@@ -19,11 +19,15 @@ namespace Orders.Web.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         }
+        //[HttpPost]
+        //public async Task<IActionResult> Create()
+        //{
+        //    return View();
+        //}
 
 
     }
