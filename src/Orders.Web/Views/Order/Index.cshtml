@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+}
+
+<div class="bg-success py-3">
+    <div class="container-fluid ps-4">
+        <h1 class="text-dark">Заказы</h1>
+        <a href="@Url.Action("Create")" class="btn btn-dark">Создать заказ</a>
+    </div>
+</div>
+
+<div class="overflow-y-auto pb-3">
+    <div class="container-fluid text-white ps-4">
+
+        @for (int i = 0; i <= 1; i++)
+        {
+            <div class="card bg-dark text-white mb-3 border-secondary">
+                <div class="card-header bg-black border-secondary py-2">
+                    <h5 class="card-title">
+                        <a href="@Url.Action("Get", new { id = i })" class="text-info text-decoration-none">Заказ № @i</a>
+                    </h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 border-end border-secondary"> 
+                            <h6 class="text-warning mb-2 small text-uppercase font-monospace">Отправитель</h6>
+                            <div class="mb-1"><strong>Город:</strong> model.SenderCity</div>
+                            <div><strong>Адрес:</strong> model.SenderAddress</div>
+                        </div>
+
+                        <div class="col-md-4 border-end border-secondary">
+                            <h6 class="text-success mb-2 small text-uppercase font-monospace">Получатель</h6>
+                            <div class="mb-1"><strong>Город:</strong> model.RecipientCity</div>
+                            <div><strong>Адрес:</strong> model.RecipientAddress</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h6 class="text-white-50 mb-2 small text-uppercase font-monospace">Параметры груза</h6>
+                            <div class="mb-1"><strong>Вес:</strong> model.CargoWeight</div>
+                            <div><strong>Дата забора:</strong> model.PickDate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
