@@ -12,37 +12,45 @@
 
 <div class="overflow-y-auto pb-3">
     <div class="container-fluid text-white ps-4">
-        @foreach (var order in Model.Orders)
+        @if (Model.Orders == null || Model.Orders.Count == 0)
         {
-            <div class="card bg-dark text-white mb-3 border-secondary">
-                <div class="card-header bg-black border-secondary py-2">
-                    <h5 class="card-title">
-                        <a asp-action="Get" asp-route-orderNum="@order.OrderNum" class="text-info text-decoration-none">Заказ № @order.OrderNum</a>
-                    </h5>
-                </div>
+            <h5 class="text-dark mb-2">Список заказов пуст</h5>
+            <p class="text-dark mb-0 small">Вы еще не создали ни одного заказа. Воспользуйтесь кнопкой выше, чтобы оформить первую доставку.</p>
+        }
+        else
+        {
+            @foreach (var order in Model.Orders)
+            {
+                <div class="card bg-dark text-white mb-3 border-secondary">
+                    <div class="card-header bg-black border-secondary py-2">
+                        <h5 class="card-title">
+                            <a asp-action="Get" asp-route-orderNum="@order.OrderNum" class="text-info text-decoration-none">Заказ № @order.OrderNum</a>
+                        </h5>
+                    </div>
 
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4 border-end border-secondary"> 
-                            <h6 class="text-warning mb-2 small text-uppercase font-monospace">Отправитель</h6>
-                            <div class="mb-1"><strong>Город:</strong> @order.SenderCity</div>
-                            <div><strong>Адрес:</strong> @order.SenderAddress</div>
-                        </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 border-end border-secondary">
+                                <h6 class="text-warning mb-2 small text-uppercase font-monospace">Отправитель</h6>
+                                <div class="mb-1"><strong>Город:</strong> @order.SenderCity</div>
+                                <div><strong>Адрес:</strong> @order.SenderAddress</div>
+                            </div>
 
-                        <div class="col-md-4 border-end border-secondary">
-                            <h6 class="text-success mb-2 small text-uppercase font-monospace">Получатель</h6>
-                            <div class="mb-1"><strong>Город:</strong> @order.RecipientCity</div>
-                            <div><strong>Адрес:</strong> @order.RecipientAddress</div>
-                        </div>
+                            <div class="col-md-4 border-end border-secondary">
+                                <h6 class="text-success mb-2 small text-uppercase font-monospace">Получатель</h6>
+                                <div class="mb-1"><strong>Город:</strong> @order.RecipientCity</div>
+                                <div><strong>Адрес:</strong> @order.RecipientAddress</div>
+                            </div>
 
-                        <div class="col-md-4">
-                            <h6 class="text-white-50 mb-2 small text-uppercase font-monospace">Параметры груза</h6>
-                            <div class="mb-1"><strong>Вес:</strong> @order.CargoWeightKg</div>
-                            <div><strong>Дата забора:</strong> @order.PickDate.ToString("dd.MM.yyyy")</div>
+                            <div class="col-md-4">
+                                <h6 class="text-white-50 mb-2 small text-uppercase font-monospace">Параметры груза</h6>
+                                <div class="mb-1"><strong>Вес:</strong> @order.CargoWeightKg</div>
+                                <div><strong>Дата забора:</strong> @order.PickDate.ToString("dd.MM.yyyy")</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </div>
