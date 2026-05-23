@@ -28,11 +28,11 @@ namespace Orders.Web.Controllers
             return View(new OrderListViewModel { Orders = viewModels });
         }
 
-        public async Task<IActionResult> Get(int number)
+        public async Task<IActionResult> Get(int orderNum)
         {
             var order = await _appDbContext.Orders
                 .AsNoTracking()
-                .FirstOrDefaultAsync(o => o.OrderNum == number);
+                .FirstOrDefaultAsync(o => o.OrderNum == orderNum);
 
             if (order == null)
             {
@@ -63,7 +63,5 @@ namespace Orders.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-
     }
 }

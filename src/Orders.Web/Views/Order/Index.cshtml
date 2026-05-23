@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model OrderListViewModel
 
 @{
 }
@@ -14,13 +12,12 @@
 
 <div class="overflow-y-auto pb-3">
     <div class="container-fluid text-white ps-4">
-
-        @for (int i = 0; i <= 1; i++)
+        @foreach (var order in Model.Orders)
         {
             <div class="card bg-dark text-white mb-3 border-secondary">
                 <div class="card-header bg-black border-secondary py-2">
                     <h5 class="card-title">
-                        <a href="@Url.Action("Get", new { id = i })" class="text-info text-decoration-none">Заказ № @i</a>
+                        <a href="@Url.Action("Get", order.OrderNum)" class="text-info text-decoration-none">Заказ № @order.OrderNum</a>
                     </h5>
                 </div>
 
@@ -28,25 +25,24 @@
                     <div class="row">
                         <div class="col-md-4 border-end border-secondary"> 
                             <h6 class="text-warning mb-2 small text-uppercase font-monospace">Отправитель</h6>
-                            <div class="mb-1"><strong>Город:</strong> model.SenderCity</div>
-                            <div><strong>Адрес:</strong> model.SenderAddress</div>
+                            <div class="mb-1"><strong>Город:</strong> @order.SenderCity</div>
+                            <div><strong>Адрес:</strong> @order.SenderAddress</div>
                         </div>
 
                         <div class="col-md-4 border-end border-secondary">
                             <h6 class="text-success mb-2 small text-uppercase font-monospace">Получатель</h6>
-                            <div class="mb-1"><strong>Город:</strong> model.RecipientCity</div>
-                            <div><strong>Адрес:</strong> model.RecipientAddress</div>
+                            <div class="mb-1"><strong>Город:</strong> @order.RecipientCity</div>
+                            <div><strong>Адрес:</strong> @order.RecipientAddress</div>
                         </div>
 
                         <div class="col-md-4">
                             <h6 class="text-white-50 mb-2 small text-uppercase font-monospace">Параметры груза</h6>
-                            <div class="mb-1"><strong>Вес:</strong> model.CargoWeightKg</div>
-                            <div><strong>Дата забора:</strong> model.PickDate</div>
+                            <div class="mb-1"><strong>Вес:</strong> @order.CargoWeightKg</div>
+                            <div><strong>Дата забора:</strong> @order.PickDate</div>
                         </div>
                     </div>
                 </div>
             </div>
         }
-
     </div>
 </div>
