@@ -14,7 +14,7 @@ namespace Orders.Web.Mapping
                 RecipientCity = model.RecipientCity,
                 RecipientAddress = model.RecipientAddress,
                 CargoWeightKg = model.CargoWeightKg,
-                PickDate = model.PickDate
+                PickDate = model.PickDate.UtcDateTime
             };
         }
 
@@ -22,6 +22,7 @@ namespace Orders.Web.Mapping
         {
             return new OrderViewModel
             {
+                OrderNum = entity.OrderNum,
                 SenderCity = entity.SenderCity,
                 SenderAddress = entity.SenderAddress,
                 RecipientCity = entity.RecipientCity,

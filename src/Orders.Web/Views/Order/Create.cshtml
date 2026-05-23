@@ -11,36 +11,37 @@
 </div>
 
 <div class="text-white ps-4 mt-3" style="max-width: 900px; margin-left: 0;">
-    <form asp-action="Create" method="post" class="card bg-dark text-white border-secondary needs-validation" novalidate>
+    <form asp-action="Create" method="post" class="card bg-dark text-white border-secondary">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="card-body p-4">
             <div class="row">
                 <div class="col-md-6 border-end border-secondary mb-4">
                     <h5 class="text-warning mb-3 text-uppercase font-monospace small">Отправитель</h5>
                     <div class="mb-3">
-                        <label class="form-label text-white-50 small">Город отправителя</label>
+                        <label asp-for="SenderCity" class="form-label text-white-50 small"></label>
                         <input asp-for="SenderCity" type="text" class="form-control bg-secondary bg-opacity-25 text-white border-secondary" required />
-                        <div class="invalid-feedback">Укажите город отправителя</div>
+                        <span asp-validation-for="SenderCity" class="text-danger"></span>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-white-50 small">Адрес отправителя</label>
+                        <label asp-for="SenderAddress" class="form-label text-white-50 small"></label>
                         <input asp-for="SenderAddress" type="text" class="form-control bg-secondary bg-opacity-25 text-white border-secondary" required />
-                        <div class="invalid-feedback">Укажите точный адрес</div>
+                        <span asp-validation-for="SenderAddress" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <h5 class="text-success mb-3 text-uppercase font-monospace small">Получатель</h5>
                     <div class="mb-3">
-                        <label class="form-label text-white-50 small">Город получателя</label>
+                        <label asp-for="RecipientCity" class="form-label text-white-50 small"></label>
                         <input asp-for="RecipientCity" type="text" class="form-control bg-secondary bg-opacity-25 text-white border-secondary" required />
-                        <div class="invalid-feedback">Укажите город получателя</div>
+                        <span asp-validation-for="RecipientCity" class="text-danger"></span>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-white-50 small">Адрес получателя</label>
+                        <label asp-for="RecipientAddress" class="form-label text-white-50 small"></label>
                         <input asp-for="RecipientAddress" type="text" class="form-control bg-secondary bg-opacity-25 text-white border-secondary" required />
-                        <div class="invalid-feedback">Укажите точный адрес</div>
+                        <span asp-validation-for="RecipientAddress" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -48,14 +49,14 @@
                     <h5 class="text-info mb-3 text-uppercase font-monospace small">Параметры груза</h5>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label class="form-label text-white-50 small">Вес груза (кг)</label>
+                            <label asp-for="CargoWeightKg" class="form-label text-white-50 small"></label>
                             <input asp-for="CargoWeightKg" type="number" step="0.01" class="form-control bg-secondary bg-opacity-25 text-white border-secondary" required />
-                            <div class="invalid-feedback">Введите вес груза</div>
+                            <span asp-validation-for="CargoWeightKg" class="text-danger"></span>
                         </div>
                         <div class="col-sm-6">
-                            <label class="form-label text-white-50 small">Дата забора груза</label>
+                            <label asp-for="PickDate" class="form-label text-white-50 small"></label>
                             <input asp-for="PickDate" type="date" class="form-control bg-secondary bg-opacity-25 text-white border-secondary" required />
-                            <div class="invalid-feedback">Выберите дату забора</div>
+                            <span asp-validation-for="PickDate" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -71,6 +72,8 @@
 
 </div>
 
-<script>
-
-</script>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
