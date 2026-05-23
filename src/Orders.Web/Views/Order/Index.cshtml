@@ -17,7 +17,7 @@
             <div class="card bg-dark text-white mb-3 border-secondary">
                 <div class="card-header bg-black border-secondary py-2">
                     <h5 class="card-title">
-                        <a href="@Url.Action("Get", order.OrderNum)" class="text-info text-decoration-none">Заказ № @order.OrderNum</a>
+                        <a asp-action="Get" asp-route-orderNum="@order.OrderNum" class="text-info text-decoration-none">Заказ № @order.OrderNum</a>
                     </h5>
                 </div>
 
@@ -38,7 +38,7 @@
                         <div class="col-md-4">
                             <h6 class="text-white-50 mb-2 small text-uppercase font-monospace">Параметры груза</h6>
                             <div class="mb-1"><strong>Вес:</strong> @order.CargoWeightKg</div>
-                            <div><strong>Дата забора:</strong> @order.PickDate</div>
+                            <div><strong>Дата забора:</strong> @order.PickDate.ToString("dd.MM.yyyy")</div>
                         </div>
                     </div>
                 </div>
