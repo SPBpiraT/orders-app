@@ -23,7 +23,7 @@ docker run -itd -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -p 5432:5432 -
 
 ### Старт приложения
 ```sh
-# Запустить проект в режиме разработки
+# Запустить проект в режиме разработки. Команда вводится из директории основного проекта Orders.Web
 dotnet run --launch-profile https
 ```
 
