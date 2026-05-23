@@ -21,6 +21,7 @@ namespace Orders.Web.Controllers
         {
             var orders = await _appDbContext.Orders
                 .AsNoTracking()
+                .OrderByDescending(o => o.OrderNum)
                 .ToListAsync();
 
             var viewModels = orders.Select(o => o.MapToViewModel()).ToList();
